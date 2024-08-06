@@ -26,9 +26,9 @@ param (
     [Parameter(Mandatory=$true)]
     [string] $File,
     [Parameter(Mandatory=$true)]
-    [String]$tenantID,
+    [String] $tenantID,
     [Parameter(Mandatory=$true)]
-    [PSCredential]$credential,
+    [PSCredential] $credential,
     [Parameter(Mandatory=$false)]
     [switch]$Overwrite = $false,
     [Parameter(Mandatory=$false)]
