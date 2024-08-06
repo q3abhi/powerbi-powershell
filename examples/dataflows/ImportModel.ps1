@@ -30,7 +30,11 @@ param (
 	[Parameter(Mandatory=$false)]
     [string] $Environment,
     [Parameter(Mandatory=$false)]
-    [switch]$v = $false
+    [switch]$v = $false,
+    [Parameter(Mandatory=$true)]
+    [String]$tenantID,
+    [Parameter(Mandatory=$true)]
+    [PSCredential]$credential
 )
 Begin
 {
@@ -49,7 +53,7 @@ Process
 {
     # Login to PowerBi and fetch the workspace id
     DFLogMessage("Overwrite : $Overwrite")
-    LoginPowerBi($Environment)
+    LoginPowerBi($tenantID,$credential)
 	$workspaceId = GetWorkspaceIdFromName($Workspace)
     $dataflows = GetDataflowsForWorkspace($workspaceId)
     
