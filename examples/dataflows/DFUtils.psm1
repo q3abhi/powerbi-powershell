@@ -110,17 +110,10 @@ function DFLogWarning($message)
 # ==================================================================
 # Logs into a Power BI environment
 # ==================================================================
-function LoginPowerBi([String]$Environment)
+function LoginPowerBi([String]$tenantID,[PSCredential]$credential)
 {
 	DFLogMessage("Logging in to PowerBI")
-	if ($Environment -ne "" -and $Environment -ne $null)
-    {
-        Connect-PowerBIServiceAccount -Environment $Environment
-    }
-    else 
-    {
-        Login-PowerBI
-    }
+        Connect-PowerBIServiceAccount -Tenant $tenantID -ServicePrincipal -Credential $credential
 }
 
 # ==================================================================
