@@ -25,16 +25,16 @@ param (
     [string] $Workspace,
     [Parameter(Mandatory=$true)]
     [string] $File,
+    [Parameter(Mandatory=$true)]
+    [String]$tenantID,
+    [Parameter(Mandatory=$true)]
+    [PSCredential]$credential,
     [Parameter(Mandatory=$false)]
     [switch]$Overwrite = $false,
     [Parameter(Mandatory=$false)]
     [string] $Environment,
     [Parameter(Mandatory=$false)]
-    [switch]$v = $false,
-    [Parameter(Mandatory=$true)]
-    [String]$tenantID,
-    [Parameter(Mandatory=$true)]
-    [PSCredential]$credential
+    [switch]$v = $false
 )
 Begin
 {
