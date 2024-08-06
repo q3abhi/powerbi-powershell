@@ -28,7 +28,9 @@ param (
     [Parameter(Mandatory=$true)]
     [String] $tenantID,
     [Parameter(Mandatory=$true)]
-    [PSCredential] $credential,
+    [String] $AppId,
+    [Parameter(Mandatory=$true)]
+    [String] $sec,
     [Parameter(Mandatory=$false)]
     [switch]$Overwrite = $false,
     [Parameter(Mandatory=$false)]
@@ -53,10 +55,8 @@ Process
 {
     # Login to PowerBi and fetch the workspace id
     DFLogMessage("Overwrite : $Overwrite")
-    echo ("TenantID : $tenantID")
-    echo ("Credential : $credential")
-    LoginPowerBiSP($tenantID,$credential)
-	$workspaceId = GetWorkspaceIdFromName($Workspace)
+    LoginPowerBiSP($tenantID,$AppId,$sec)
+    $workspaceId = GetWorkspaceIdFromName($Workspace)
     $dataflows = GetDataflowsForWorkspace($workspaceId)
     
     # Read the file
