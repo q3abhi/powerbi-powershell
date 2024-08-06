@@ -53,7 +53,7 @@ Process
 {
     # Login to PowerBi and fetch the workspace id
     DFLogMessage("Overwrite : $Overwrite")
-    LoginPowerBi($tenantID,$credential)
+    LoginPowerBiSP($tenantID,$credential)
 	$workspaceId = GetWorkspaceIdFromName($Workspace)
     $dataflows = GetDataflowsForWorkspace($workspaceId)
     
