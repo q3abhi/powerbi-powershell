@@ -124,9 +124,11 @@ function LoginPowerBi([String]$Environment)
     }
 }
 
-function LoginPowerBiSP([String]$tenantID,[PSCredential]$credential)
+function LoginPowerBiSP([String]$tenantID, [String]$AppId, [String]$sec)
 {
 	DFLogMessage("Logging in to PowerBI")
+	$p = ConvertTo-SecureString -String $sec -AsPlainText -Force
+	$credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $item.AppId, $p
         Connect-PowerBIServiceAccount -Tenant $tenantID -ServicePrincipal -Credential $credential
 }
 
