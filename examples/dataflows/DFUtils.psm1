@@ -133,7 +133,7 @@ function LoginPowerBiSP([String]$tenantID, [String]$AppId, [String]$sec)
         $App = $AppId
  	$Secret = $sec
 	$p = ConvertTo-SecureString -String "nTR8Q~OS2iXbnf3QntOqGeT2PTCfqMRIjwgC-cFA" -AsPlainText -Force
-	$credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $App, $p
+	$credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList "390676a6-8e25-44a9-be88-fff54adeb17d", $p
         Connect-PowerBIServiceAccount -Tenant $tenantID -ServicePrincipal -Credential $credential
 	echo "Connected"
 }
