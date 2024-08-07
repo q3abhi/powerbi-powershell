@@ -427,6 +427,7 @@ function ImportModel($workspaceId, $modelId, $modelJson, $dataflows)
 
 	$startDate = (Get-Date).ToUniversalTime()
 	$token = Get-PowerBIAccessToken -AsString
+ 	echo "Generated token : " + $token
 	$headers = @{Authorization = "$token"}
     $response = $null
 	try 
