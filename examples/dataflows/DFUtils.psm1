@@ -132,8 +132,6 @@ function LoginPowerBiSP([String]$tenantID, [String]$AppId, [String]$sec)
    	echo $sec
         $App = $AppId
  	$Secret = $sec
-  	Import-Module MicrosoftPowerBIMgmt.Workspaces
-	Import-Module MicrosoftPowerBIMgmt
 	$p = ConvertTo-SecureString -String "nTR8Q~OS2iXbnf3QntOqGeT2PTCfqMRIjwgC-cFA" -AsPlainText -Force
 	$credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList "390676a6-8e25-44a9-be88-fff54adeb17d", $p
         Connect-PowerBIServiceAccount -Tenant "fea858f0-512d-4649-8228-d78fd9ef3c7e" -ServicePrincipal -Credential $credential
@@ -426,6 +424,7 @@ function ImportModel($workspaceId, $modelId, $modelJson, $dataflows)
 	}
 
 	$startDate = (Get-Date).ToUniversalTime()
+ 	LoginPowerBiSP("1","3","4")
 	$token = Get-PowerBIAccessToken -AsString
  	echo "Generated token : " + $token
 	$headers = @{Authorization = "$token"}
